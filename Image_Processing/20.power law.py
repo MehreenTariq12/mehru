@@ -1,0 +1,42 @@
+import cv2
+import numpy as np
+corn = cv2.imread("images/gray.jpg")
+img=corn[0:100,0:430]
+rows=img.shape[0]
+cols=img.shape[1]
+img2 = np.zeros((rows,cols,3),np.uint8)
+img3 = np.zeros((rows,cols,3),np.uint8)
+img4 = np.zeros((rows,cols,3),np.uint8)
+img5 = np.zeros((rows,cols,3),np.uint8)
+img6 = np.zeros((rows,cols,3),np.uint8)
+img7 = np.zeros((rows,cols,3),np.uint8)
+img8 = np.zeros((rows,cols,3),np.uint8)
+img9 = np.zeros((rows,cols,3),np.uint8)
+img10 = np.zeros((rows,cols,3),np.uint8)
+img11 = np.zeros((rows,cols,3),np.uint8)
+img12 = np.zeros((rows,cols,3),np.uint8)
+for i in range(rows):
+    for j in range(cols):
+        img2[i,j] =  255 * (img[i,j]/255)**(0.04)
+        img3[i, j] = 255* (img[i, j]/255)**(0.10)
+        img4[i, j] = 255 * ((img[i, j])/255) ** (0.20)
+        img5[i, j] = 255 * (img[i, j]/255 )** (0.40)
+        img6[i, j] = 255 * (img[i, j]/255) ** (0.67)
+        img7[i, j] = 255 * (img[i, j]/255) ** (1)
+        img8[i, j] = 255 *(img[i, j]/255) ** (1.5)
+        img9[i, j] = 255*(img[i, j]/255) ** (2.5)
+        img10[i, j] = 255*((img[i, j]/255) ** (5.0))
+        img11[i, j] = 255*(img[i, j]/255) ** (10.0)
+        img12[i, j] = 255*((img[i, j]/255) ** (25.0))
+cv2.imshow("0.04",img2)
+cv2.imshow("0.10",img3)
+cv2.imshow("0.20",img4)
+cv2.imshow("0.40",img5)
+cv2.imshow("0.67",img6)
+cv2.imshow("1",img7)
+cv2.imshow("1.5",img8)
+cv2.imshow("2.5",img9)
+cv2.imshow("5.0",img10)
+cv2.imshow("10.0",img11)
+cv2.imshow("25.0",img12)
+cv2.waitKey(0)
